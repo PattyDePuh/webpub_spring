@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hallo Welt mit HTML und Thymeleaf</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<p>Liste aller Greetings:</p>
+	<ul>
+		<li th:each="greet : ${namelist}" th:text="${greet.id} + ': ' + ${greet.content}" />
+	</ul>
+</body>
+</html>

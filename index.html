@@ -1,0 +1,463 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1024" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Titel der Präsentation</title>
+  
+  <meta name="description" content="Titel der Präsentation." />
+
+  <!-- jQuery für alle! -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <!-- Chart2.js - for eyecandy Bar-Charts -->
+  <script src="http://www.pattydepuh.net/libs/Chart2.js"></script>
+  <!-- Eigene Voting-Graphen -->
+  <script src="js/voting-graph-factory.js"></script>
+
+  <link rel="stylesheet" href="impress.css" />
+    
+</head>
+
+<body class="impress-not-supported" onload="initVotingGraphs()">
+
+<div class="fallback-message">
+  <p>Diese auf impress.js (HTML5) basierende Präsentation sollte in einem Browser betrachtet werden, der HTML5 beherrscht.</p>
+  <p>Hören sie auf hinterweltlerische Browser zu verwenden!</p>
+</div>
+
+<!-- ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' -->
+<!--                         Folienblock                           -->
+<!-- _____________________________________________________________ -->
+
+<article id="impress">
+
+  <!-- Preface mit Logo und Link zum Quiz -->
+  <section class="step real-step" data-x="0" data-y="-6000" data-scale="10">
+        <div class="center"><img src="res/logo-spring.jpg" width="100"/></div>
+        <div class="spring_green center">Macht beim Quiz während des Seminars mit:</div><div class="center"><a rel='nofollow' href='http://www.qrcode-generator.de' border='0' style='cursor:default'></a><img src='https://chart.googleapis.com/chart?cht=qr&chl=vm009.rz.uos.de%3A8080&chs=180x180&choe=UTF-8&chld=L|2' alt=''></div>
+        <!-- QR-Code -->
+        
+  </section>
+  <!-- Testfrage -->
+  <section class="step real-step quiz-slide hide" data-x="0" data-y="-8000" data-z="1200" data-scale="4" data-rotate-x="-90">
+    <div class="quiz-question">Wie viel kostet eine Terrine Suppe in der Mensa Westerberg für Studenten?</div>
+    <div class="quiz-optionlist">
+      <table border="0">
+        <tr><td><img src="res/901_Solution_A.svg" width="80"/></td><td>0,80€</td></tr>
+        <tr><td><img src="res/902_Solution_B.svg" width="80"/></td><td>1,00€</td></tr>
+        <tr><td><img src="res/903_Solution_C.svg" width="80"/></td><td>1,20€</td></tr>
+        <tr><td><img src="res/904_Solution_D.svg" width="80"/></td><td>1,40€</td></tr>
+      </table>
+    </div>
+    <div style="float: left;"><canvas id="vote-graph-1" class="vote-result" width="240" height="480"></canvas></div>
+  </section>
+
+  <!-- Titelseite - Logo -->
+  <section class="step real-step slide" data-x="0" data-y="2000" data-scale="10">
+    <header>
+  		<h1 class="center spring_green"> Java &amp; Spring Boot</h1>
+  	</header>
+    <main>
+  	</main>
+  </section>
+
+  <!-- Eigen Erzähl Kommentare -->
+  <!-- 
+    Danke, Herr Vornberger.
+
+    Heute darf ich euch ein praktisches Framework vorstellen, welches eine Programmiersprache verwendet,
+    in der wir uns schon seid "Informatik A" Zeiten wohlfühlen. JAVA
+    Ich habe mich mal rumgeschaut im Web.
+   -->
+
+  <!-- Kapitel Einführung -->
+  <section class="step real-step slide" data-x="-2200" data-y="1250" data-z="400" data-scale="3.8">
+    <header>
+      <h1 class="center spring_green">Motivation</h1>
+    </header>
+    <main>
+    </main>
+  </section>
+  <!-- Spring Framework Hintergrund -->
+  <section class="step" data-x="-1100" data-y="1250" data-z="-3000" data-scale="8">
+    <img class="blass" src="res/002_spring-framework.png" width="400"></img>
+  </section>
+
+  <!-- Client/Server-System klassisch -->
+  <section class="step real-step multi" data-x="-2200" data-y="1500" data-z="300" data-scale="3.6">
+    <img src="res/010_Client_Server_Modell.svg" width="820"></img>
+  </section>
+  <section class="step real-step multi" data-x="-2200" data-y="1500" data-z="300" data-scale="3.6">
+    <img src="res/011_Client_Server_Modell.svg" width="820"></img>
+  </section>
+  <section class="step real-step multi" data-x="-2200" data-y="1500" data-z="300" data-scale="3.6">
+    <img src="res/012_Client_Server_Modell.svg" width="820"></img>
+  </section>
+  <!-- WebApplication Server -->
+  <section class="step real-step multi" data-x="-2200" data-y="1500" data-z="300" data-scale="3.6">
+    <img src="res/013_Java_Server_Application.svg" width="820"></img>
+  </section>
+  <section class="step real-step multi" data-x="-2200" data-y="1500" data-z="300" data-scale="3.6">
+    <img src="res/014_Java_Server_Application.svg" width="820"></img>
+  </section>
+  <!-- Die Entscheidung -->
+  <section class="step real-step multi" data-x="-1890" data-y="1250" data-z="300" data-scale="1.5">
+    <img src="res/015_JavaEE_vs_Spring.svg" width="820"></img>
+  </section>
+  <section class="step real-step multi" data-x="-2200" data-y="1500" data-z="300" data-scale="3.6">
+    <img src="res/016_Java_Server_Application.svg" width="820"></img>
+  </section>
+
+
+  <!-- Kapitel Vorbereitung -->
+  <section class="step real-step slide" data-x="2200" data-y="1250" data-z="400" data-scale="3.8">
+    <header>
+      <h1 class="center spring_green">Spring Framework</h1>
+    </header>
+    <main>
+    </main>
+  </section>
+  <!-- Spring Framework Hintergrund -->
+  <section class="step" data-x="4800" data-y="1450" data-z="-3000" data-scale="8">
+    <img class="blass" src="res/003_Spring_Prep.svg" width="320"></img>
+  </section>
+  <!-- Spring in a Nutshell -->
+  <section class="step real-step multi" data-x="2200" data-y="1500" data-z="400" data-scale="3.6">
+    <img src="res/021_Spring_in_a_Nutshell.svg" width="820"></img>
+  </section>
+  <section class="step real-step multi" data-x="2200" data-y="1500" data-z="400" data-scale="3.6">
+    <h3>Was brauchen wir?</h3>
+    <ul>
+      <li>Java Developer Kit 1.8 (Java 8 SE)</li>
+      <li>Maven Buildsystem (3.0)</li>
+      <li>Spring Tool Suite <b>(Optional)</b></li>
+    </ul>
+  </section>
+  <section class="step real-step multi" data-x="2200" data-y="1500" data-z="400" data-scale="3.6">
+    <img src="res/024_Spring_Boot.svg" width="820"></img>
+  </section>
+  <!-- Project Filepath -->
+  <section class="step real-step multi" data-x="1860" data-y="1280" data-z="400" data-scale="1.3">
+    <img src="res/022_war_project_bottom.svg" width="820"></img>
+  </section>
+  <!-- Testfrage -->
+  <section class="step real-step quiz-slide hide" data-x="0" data-y="1280" data-z="3000" data-scale="4" data-rotate-y="90">
+    <div class="quiz-question">Wie heißt das defacto Test-Framework der Java-Welt?</div>
+    <div class="quiz-optionlist">
+      <table border="0">
+        <tr><td><img src="res/901_Solution_A.svg" width="80"/></td><td>JUnit</td></tr>
+        <tr><td><img src="res/902_Solution_B.svg" width="80"/></td><td>JBoss</td></tr>
+        <tr><td><img src="res/903_Solution_C.svg" width="80"/></td><td>JProve</td></tr>
+        <tr><td><img src="res/904_Solution_D.svg" width="80"/></td><td>JAsset</td></tr>
+      </table>
+    </div>
+    <div style="float: left;"><canvas id="vote-graph-1" class="vote-result" width="240" height="480"></canvas></div>
+  </section>
+  <section class="step real-step multi" data-x="1860" data-y="1280" data-z="400" data-scale="1.3">
+    <img src="res/022_war_project_bottom.svg" width="820"></img>
+  </section>
+  <section class="step real-step multi" data-x="1860" data-y="1190" data-z="450" data-scale="0.9">
+    <img src="res/023_war_project_top.svg" width="820"></img>
+  </section>
+
+  <!-- Spring Boot -->
+  <section class="step real-step multi" data-x="2200" data-y="1500" data-z="400" data-scale="3.6">
+    <img src="res/024_Spring_Boot.svg" width="820"></img>
+  </section>
+  <section class="step real-step multi" data-x="2200" data-y="1500" data-z="400" data-scale="3.6">
+    <img src="res/025_Spring_Boot.svg" width="820"></img>
+  </section>
+  <section class="step real-step multi" data-x="2200" data-y="1500" data-z="400" data-scale="3.6">
+    <img src="res/026_Spring_Boot.svg" width="820"></img>
+  </section>
+  <section class="step real-step multi" data-x="2200" data-y="1500" data-z="400" data-scale="3.6">
+    <img src="res/027_Spring_Boot.svg" width="820"></img>
+  </section>
+
+  <!-- ''''''''''''''''' -->
+  <!-- Kapitel HelloRest -->
+  <section class="step real-step slide" data-x="-2200" data-y="3950" data-z="400" data-scale="3.8">
+    <header>
+      <h1 class="center spring_green">"Hallo, Welt!"</h1>
+    </header>
+    <main>
+    </main>
+  </section>
+  <!-- HelloRest Hintergrund -->
+  <section class="step" data-x="-1000" data-y="4850" data-z="-3000" data-scale="8">
+    <img class="blass" src="res/004_HelloRest_Icon.svg" width="320"></img>
+  </section>
+  <section class="step real-step multi" data-x="-2200" data-y="4200" data-z="400" data-scale="3.6">
+    <h2>Erste Schritte</h2>
+    <ul>
+      <li>Projektrahmen mit <a href="https://start.spring.io/" target="blank">Spring Initializer</a> </li>
+      <li>Application.java anpassen.</li>
+      <li>Konsole: <span class="code">mvn spring-boot:run</span></li>
+      <li>Enjoy</li>
+    </ul>
+  </section>
+  <!-- Application.java -->
+  <section class="step real-step multi" data-x="-2200" data-y="4200" data-z="400" data-scale="3.6">
+    <h4>Application.java</h4>
+    <p class="klein">Der "Zauber" steckt in der Annotation.</p>
+    <div class="code">
+        @SpringBootApplication<br>
+        class Application(){...}
+    </div>
+    <p class="klein">Start der Web-Anwendung</p>
+    <div class="code">
+        SpringApplication.run(Application.class, args);
+    </div>
+  </section>
+  <!-- Beispiel Logger -->
+  <section class="step real-step multi" data-x="-2200" data-y="4200" data-z="400" data-scale="3.6">
+    <h4>"println" auf dem Server</h4>
+    <p class="klein">Initialisieren:</p>
+    <div class="code">
+        static final Logger log = LoggerFactory.getLogger(Application.class);
+    </div>
+    <p class="klein">Benutzen:</p>
+    <div class="code">
+        log.info("Hallo, Welt!");
+    </div>
+    <p class="klein">Alternative Kanäle: <i>debug, warn, error</i></p>
+  </section>
+  <!-- Stereotypen-Annotation -->
+  <section class="step real-step multi" data-x="-2200" data-y="4200" data-z="400" data-scale="3.6">
+    <h4>Stereotypen der App-Komponenten</h4>
+    <p class="klein">
+      <span class="code">@Component</span> 
+      beschreibt eine "arbeitende" Klasse.</p>
+    <p class="klein center"><b>3 Spezialisierungen:</b></p>
+    <p class="klein">
+      <span class="code">@Controller (bzw. RestController)</span><br>
+      für eine Webschnittstelle.</p>
+    <p class="klein">
+      <span class="code">Repository</span>
+      für eine persistente Modell-Sammlung</p>
+    <p class="klein">
+      <span class="code">@Service</span>
+      für einen internen, <i>zustandslosen</i> Service</p>  
+  </section>
+  <!-- Chronjob -->
+  <section class="step real-step multi" data-x="-2200" data-y="4200" data-z="400" data-scale="3.6">
+    <h4>Cronjobs einrichten</h4>
+    <p class="klein">Annotation vor der Methode, die regelmäßig ausgeführt werden soll.</p>
+    <div class="code">
+        @Scheduled(fixedRate = 5000)<br>
+        public void currentTime(){ ... }
+    </div>
+    <p class="klein">Erfordert in der Application.java eine "Genehmigung"</p>
+    <div class="code">
+        @EnableScheduling<br>
+        class Application(){ ... }
+    </div>
+  </section>
+    <section class="step real-step multi" data-x="-2200" data-y="4200" data-z="400" data-scale="3.6">
+    <h4>Cronjobs einrichten</h4>
+    <p class="klein">Auch komplexere Zeit-Schemata sind möglich</p>
+    <div class="code">
+        @Scheduled(cron = "Sec, Min, Std, M-Tag, Mon, W-Tag")<br>
+    </div>
+    <p class="klein"><b>Beispiel</b>: Führe den Task stündlich zu jeder 15. Minute zwischen 9 bis 18 Uhr aus und zwar nur von Montag bis Freitag</p>
+    <div class="code">
+        @Scheduled(cron = "0 15 9-17 * * MON-FRI")
+    </div>
+  </section>
+  <!-- Testfrage Cronjob -->
+  <section class="step real-step quiz-slide hide" data-x="-200" data-y="4200" data-z="3000" data-scale="4" data-rotate-y="-90">
+    <p class="klein"><b>Welcher Cronjob erfüllt die gewünschten Kriterien im folgenden Satz?</b></p>
+    <p>Alle 10 Sekunden am 29. Februar stündlich von der 20. bis 42. Minute.</p>
+    <div class="quiz-optionlist">
+      <table border="0">
+        <tr><td><img src="res/901_Solution_A.svg" width="80"/></td><td><span class="code">10 20-42 * 29 2 *</span></td></tr>
+        <tr><td><img src="res/902_Solution_B.svg" width="80"/></td><td><span class="code">*/10 20-42 * * 2 29</span></td></tr>
+        <tr><td><img src="res/903_Solution_C.svg" width="80"/></td><td><span class="code">10 20-41 * * 2 29</span></td></tr>
+        <tr><td><img src="res/904_Solution_D.svg" width="80"/></td><td><span class="code">*/10 20-41 * 29 2 *</span></td></tr>
+      </table>
+    </div>
+    <div style="float: left;"><canvas id="vote-graph-1" class="vote-result" width="240" height="480"></canvas></div>
+  </section>
+  <!-- Web-Schnittstelle -->
+  <section class="step real-step multi" data-x="-2200" data-y="4200" data-z="400" data-scale="3.6">
+    <h4>Web-Schnittstelle</h4>
+    <p class="klein">Annotation an der Klasse:</p>
+    <div class="code">
+        @Controller<br>
+        class GreetingsController() { ... }
+    </div>
+    <p class="klein">Eine Schnittstelle entspricht eine Methode.</p>
+    <div class="code">
+        @RequestMapping("/hello")<br>
+        public String greet(Model model){return "template_name"}
+    </div>
+      <p class="klein">Dynamische Website wird aus <i>"/templates/template_name.html"</i> eingebunden</p>
+  </section>
+  <section class="step real-step multi" data-x="-2200" data-y="4200" data-z="400" data-scale="3.6">
+    <h4>Web-Schnittstelle HTTP Methode</h4>
+    <p class="klein"><span class="code">@RequestMapping("/path")</span> hört auf GET-Requests</p>
+    <p class="klein">Lässt sich auch umbiegen auf <br> POST, PUT, DELETE</p>
+    <div class="code">
+        @RequestMapping(value="/path", <br>
+        &#160;&#160;&#160;method=RequestMethod.POST)<br>
+    </div>
+  </section>
+  <section class="step real-step multi" data-x="-2200" data-y="4200" data-z="400" data-scale="3.6">
+    <h4>Web-Schnittstelle Parameter</h4>
+    <p class="klein">URL-Queries kann man auf die Parameter der Methode mappen:</p>
+    <div class="code">
+        public String greet(<br>
+        &#160;&#160;&#160;@RequestParam(value="name", defaultValue="World") <br>
+        &#160;&#160;&#160;String name)
+    </div>
+    <p><img src="res/030_HalloWelt_Query.svg" width="820"></img></p>
+  </section>
+  <!-- RestController -->
+  <section class="step real-step multi" data-x="-2200" data-y="4200" data-z="400" data-scale="3.6">
+    <h4>Spezialisierung @RestController</h4>
+    <p class="klein">Simpler Text:</p>
+    <div class="code">
+        public String greet(){return "hello";}
+    </div>
+    <p class="klein">JSON aus Java-Klasse:</p>
+    <div class="code">
+        public Greeting greet(){return new Greeting();}
+    </div>
+    <p><b>Achtung!</b> @Controller und @RestController nicht verwechseln.</p>
+  </section>
+  <!-- Repository -->
+  <section class="step real-step multi" data-x="-2200" data-y="4200" data-z="400" data-scale="3.6">
+    <h4>Repositories einrichten</h4>
+    <p class="klein">Für die Abspeicherung von Objekten</p>
+    <div class="code">
+        interface MyRepository extends Repository&lt;Person, Long&gt;<br>
+        { ... } 
+    </div>
+    <p class="klein"><b>Nur</b> Deklarierung der benötigten Methoden.</p>
+    <div class="code">
+        void save(T entity);<br>
+        List<T> findAll();<br>
+        T findByFirstname(String firstname);
+    </div>
+  </section>
+  <section class="step real-step multi" data-x="-2200" data-y="4200" data-z="400" data-scale="3.6">
+    <h4>Repositories einrichten</h4>
+    <p class="klein">Benötigt wird eine Entity + Identifier:</p>
+    <div class="code">
+        @Entity<br>
+        public class Person{ ... }
+    </div>
+    <p class="klein">Der Identifier wird mit @Id gekennzeichnet.</p>
+    <div class="code">
+        @Id<br>
+        private long id;
+    </div>
+  </section>
+  <section class="step real-step multi" data-x="-2200" data-y="4200" data-z="400" data-scale="3.6">
+    <h4>Repositories einrichten</h4>
+    <p class="klein">Repository im Code initialisieren:</p>
+    <div class="code">
+        @Autowired<br>
+        MyRepository repo;
+    </div>
+    <p class="klein">Methoden vom Interface anwenden.</p>
+    <div class="code">
+        repo.save(new Person("Peter", "Lustig"));<br>
+        List&lt;Person&gt; person_list = repo.findAll();<br>
+        Person mr_lustig = repo.findByFirstname("Peter");<br>
+    </div>
+    <p class="klein">Spring weiß durch <i>Namenskonvention</i>, was getan werden muss. <b>"Dependency Injection"</b></p>
+  </section>
+
+
+  <!-- Kapitel votequiz -->
+  <section class="step real-step slide" data-x="2200" data-y="3950" data-z="400" data-scale="3.8">
+    <header>
+      <h1 class="center spring_green">Beispiel "votequiz"</h1>
+    </header>
+    <main>
+    </main>
+  </section>
+  <!-- votequiz Hintergrund -->
+  <section class="step" data-x="4800" data-y="4850" data-z="-3000" data-scale="8">
+    <img class="blass" src="res/005_votequiz_Icon.svg" width="320"></img>
+  </section>
+  <!-- votequiz Overview -->
+  <section class="step real-step multi" data-x="2200" data-y="4200" data-z="400" data-scale="3.8">
+    <img src="res/040_votequiz_overview.svg" width="820"></img>
+  </section>
+  <section class="step real-step multi" data-x="2200" data-y="4200" data-z="400" data-scale="3.8">
+    <img src="res/041_votequiz_overview.svg" width="820"></img>
+  </section>
+  <section class="step real-step multi" data-x="2200" data-y="4200" data-z="400" data-scale="3.8">
+    <h4>Websocket Controller</h4>
+    <p class="klein">Ermöglicht schnellen TCP-Datenaustausch zwischen Client und Server:</p>
+    <div class="code">
+      @MessageMapping("/candidate")<br>
+      @SendTo("/channel/all")<br>
+      public ServerMessage getVote(CandidateVote vote){ ... }
+    </div>
+    <p class="klein">Erfordert Deklaration der Schnittstellen.</p>
+    <p>siehe <a href="" target="blank">WebSocketConfig.java</a></p>
+  </section>
+
+  <section class="step real-step multi" data-x="2200" data-y="4200" data-z="400" data-scale="3.8">
+    <h4>Websocket Controller</h4>
+    <p class="klein">Client-seitig realisierbar mit <a href="https://github.com/sockjs" target="blank">SockJS</a> &amp; <a href="http://stomp.github.io/" target="blank">STOMP</a>:</p>
+    <div class="code">
+      new SockJS('/candidate')<br>
+      .subscribe('/channel/all', function(json_message){...}<br>
+      stompClient.send("/quiz/candidate", {}, json_message)
+    </div>
+    <table>
+      <tr><td class="klein">Sende-Kanal:</td>
+      <td><span class="code">quiz/candidate</span></td></tr>
+      <tr><td class="klein">Empfänger-Kanal:</td>
+      <td><span class="code">channel/all</span></td></tr>
+    </table>
+  </section>
+
+  <!-- Abschluss -->
+  <section class="step real-step hide" data-x="4200" data-y="3200" data-z="3400" data-scale="10" data-rotate-y="45">
+    <h4 class="spring_green">Das war's!</h4>
+    <p class="klein">Link zur <a href="http://spring.io/" target="blank">Spring-Homepage</a></p>
+    <p class="klein">Präsentation erstellt mit <a href="https://github.com/impress/impress.js" target="blank">impress.js</a></p>
+    <p class="klein">Abbildungen erstellt mit <a href="https://www.google.de/intl/de/docs/about/" target="blank">Google Docs Zeichnung</a></p>
+    <p class="klein">Präsentation und Codebeispiele auf <a href="https://github.com/PattyDePuh/webpub_spring" target="blank">GitHub</a></p>
+  </section>
+</article>
+
+<div class="hint">
+  <p>Verwendet die Pfeiltasten zum Navigieren</p>
+</div>
+
+<!-- ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' -->
+<!--               Kontextuelle, permanente Schriftstücke              -->
+<!-- _________________________________________________________________ -->
+<div id="kopf">
+  vm009.rz.uos.de:8080
+</div>
+
+<div id="fuss">
+<p class="ref_name">Patrick Schulz</p>
+<p class="modul_name">WebPublishing WS 2015/2016</p>
+</div>
+
+<!-- ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' -->
+<!-- Skriptblock - zum anpassen ist nur sidekick_slide.js interessant. -->
+<!-- _________________________________________________________________ -->
+
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Verwendet die Pfeiltasten zum Navigieren</p>";
+}
+</script>
+
+<script type="text/javascript" src="js/impress.js"></script>
+<script type="text/javascript" src="js/navigator.js"></script>
+<script type="text/javascript" src="js/sidekick_slide.js"></script>
+
+</body>
+</html>

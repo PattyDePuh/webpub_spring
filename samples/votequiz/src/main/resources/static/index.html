@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>VoteQuiz</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <!-- jQuery - everyone needs jQuery ^^ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	
+	<!-- BOOTSTRAP -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<!-- SockJS & STOMP für die Anmeldung am Websocket -->
+	<script src="sockjs-0.3.4.js"></script>
+	<script src="stomp.js"></script>
+
+	<!-- Die eigene, client-seitige Spiellogik -->
+	<script src="brain.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<!-- Start Bildschirm -->
+		<div id="join-front" class="starter-template">
+		    <h1>VoteQuiz</h1>
+		    <p>Klick auf den Button, um im Laufe des Seminars an einem kleinen Quiz teilzunehmen:</p>
+	    	<p><button type="button" class="btn btn-lg btn-info" onclick="join()">Mitmachen</button></p>
+    	</div>
+    	
+    	<!-- Standby Bildschirm -->
+    	<div id="wait-front" class="starter-template hidden">
+    		<p>Behalten sie die aktuelle Seite, bis eine Frage gestellt wird...</p>
+    	</div>
+
+    	<!-- Auswahl Bildschirm -->
+    	<div id="choice-front" class="starter-template hidden">
+    		<p>Triff deine Wahl:</p>
+    		<p><button type="button" class="btn btn-lg btn-primary" onclick="choose('A')">A</button></p>
+    		<p><button type="button" class="btn btn-lg btn-success" onclick="choose('B')">B</button></p>
+    		<p><button type="button" class="btn btn-lg btn-warning" onclick="choose('C')">C</button></p>
+    		<p><button type="button" class="btn btn-lg btn-danger" onclick="choose('D')">D</button></p>
+    	</div>
+
+    	<!-- Ergebniss Bildschirm -->
+    	<div id="result-front" class="starter-template hidden">
+    		<p>Deine Auswahl:<p>
+    		<h3 id="your-choice">Z</h3>
+    		<div id="result-container" class="hidden">
+    			<p>Lösung:</p>
+    			<h3 id="result-letter">Z</h3>
+    			<p id="you-are-right" class="glyphicon glyphicon-ok hidden"></p>
+    			<p id="you-are-wrong" class="glyphicon glyphicon-remove hidden"></p>
+    		</div>
+    	</div>
+    </div>
+</body>
+</html>
