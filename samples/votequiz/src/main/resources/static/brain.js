@@ -11,7 +11,7 @@ var wrooong = new Audio('Wrong-answer-sound-effect.mp3');
 
 function join(){
 	//Verbindungsaufbau
-	var socket = new SockJS('/candidate');
+	var socket = new SockJS('/player');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function(frame) {
         showDiv("wait-front");
@@ -29,7 +29,7 @@ function choose(choice){
 	document.getElementById("result-container").classList.add("hidden");
 	showDiv("result-front");
 	//Auswahl an den Server schicken.
-	stompClient.send("/quiz/candidate", {}, JSON.stringify({ 'choice': choice }));
+	stompClient.send("/quiz/player", {}, JSON.stringify({ 'choice': choice }));
 }
 
 function showDiv(id_name){
